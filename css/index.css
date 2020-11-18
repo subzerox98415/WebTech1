@@ -302,7 +302,7 @@ grid-row-gap: 0px;
 	}
 	.booking {
 display: grid;
-grid-template-columns: repeat(5, 1fr);
+grid-template-columns: repeat(3, 1fr);
 grid-template-rows: 1fr;
 grid-column-gap: 0px;
 grid-row-gap: 0px;
@@ -312,3 +312,25 @@ grid-row-gap: 0px;
 	padding:30px;
 	background-color:#fff8ea;
 }
+
+#form_container
+{
+	background:#fff8ea;
+	
+	margin:0 auto;
+	text-align:center;
+	float:center;
+	width:40%;
+	padding:50px;
+	
+}
+	.bookingcalc {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+
+}
+
+

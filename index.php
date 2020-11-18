@@ -9,40 +9,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 
-function cula(obj)
-{
-	$(document).ready(function(){
-       var t = $(obj).text();
-	   if(t=="Home")
-	   {
-		   t="index"
-		   alert("ez a gyökér");
-		   $('#content').load(t+".php");
-		   	   $("#content").html("");
-	   }
-	   else
-	   {
-		   $("#content").html("");
-   $('#content').load("src/"+t+".html");
-   alert(t);
-	   }
-   });
-	}
 
 
 </script>
 <style>
 
 </style>
-<body onload="showSlides()">
+<body>
 <div id="menubar">
 <ul>
-<li><img src="img/hotel2.jpg"style="height:50px;width:50px"></li>
+<li><img src="img/img1.png"style="height:50px;width:50px"></li>
   <li><a href='index.php'>Home</a></li>
-  <li><a onclick="cula(this)">Registration</a></li>
-  <li><a onclick='cula(this)'>contact</a></li>
-  <li><a onclick='cula(this)'>Booking</a></li>
-  <li style="float:right"><a onclick='cula(this)'>LogIn</a></li>
+  <li><a onclick="pgl(this)">Registration</a></li>
+  <li><a onclick='pgl(this)'>contact</a></li>
+  <li><a onclick='pgl(this)'>Booking</a></li>
+  <li style="float:right"><a onclick='pgl(this)'>LogIn</a></li>
 
 </ul>
 </div>
@@ -64,9 +45,9 @@ Quisque euismod, ex in fringilla porttitor, diam mi rhoncus ipsum, id iaculis pu
 <div id="spacer">
 </div>
 <div id="artical">
-<div class="grid-item"><img src="img/hotel1.jpg" class="himage"><h2>SZOSZIMO</h2><br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a erat velit. Morbi et varius turpis. Lorem ipsum dolor sit amet.</p></div>
-<div class="grid-item"><img src="img/hotel2.jpg" class="himage"><h2>SZOSZIMO</h2><br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a erat velit. Morbi et varius turpis. Lorem ipsum dolor sit amet.</p></div>
-<div class="grid-item"><img src="img/hotel3.jpg" class="himage"><h2>SZOSZIMO</h2><br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a erat velit. Morbi et varius turpis. Lorem ipsum dolor sit amet.</p></div>
+<div class="grid-item"><img src="img/hotel1.jpg" class="himage"><h2>Csodás panoráma</h2><br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a erat velit. Morbi et varius turpis. Lorem ipsum dolor sit amet.</p></div>
+<div class="grid-item"><img src="img/hotel2.jpg" class="himage"><h2>Luxus</h2><br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a erat velit. Morbi et varius turpis. Lorem ipsum dolor sit amet.</p></div>
+<div class="grid-item"><img src="img/hotel3.jpg" class="himage"><h2>Kényelem</h2><br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a erat velit. Morbi et varius turpis. Lorem ipsum dolor sit amet.</p></div>
 </div>
 
 <div id="spacer">
@@ -90,8 +71,8 @@ Quisque euismod, ex in fringilla porttitor, diam mi rhoncus ipsum, id iaculis pu
 <h2>Iratkozzon fel hírlevelünkre</h2><br>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a erat velit. Morbi et varius turpis. Lorem ipsum dolor sit amet.</p><br>
 		
-<form name="newsForm" id="newsForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
-  Name: <input type="text"id="inp" name="fname">
+<form name="newsForm" id="newsForm" action="" onsubmit="" method="post">
+  Név: <input type="text"id="inp" name="fname">
   Email: <input type="text"id="inp" name="mail">
   <input type="submit"id="subbutt" value="Submit">
 </form>
@@ -105,7 +86,7 @@ Quisque euismod, ex in fringilla porttitor, diam mi rhoncus ipsum, id iaculis pu
 </div>
 <center>
 <div id="footer">
-<p><img src="logo.png"/><center> <i>Ezt az oldalt készítette Nyilas Viktor Balázs A5IGRX</i></center></p>
+<p><h3><b>NyV</b></h3><center> <i>Ezt az oldalt készítette Nyilas Viktor Balázs A5IGRX</i></center></p>
 </center>
 
 </div>

@@ -8,29 +8,97 @@
 document.getElementById("price").innerHTML = getValue2();
 
 </script>
-<!--Checkbox: <input type="checkbox" id="brfchck" onclick="BreakfastCheck()">
+<style>
 
-<p id="text" style="display:none">reggelit tartalmaz</p>
-<select multiple="multiple" id="sel">
-  <option value="1Fo">1 Fő</option>
-  <option value="2Fo">2 Fő</option>
-  <option value="3Fo">3 Fő</option>
-  <option value="4Fo">4 Fő</option>
-</select>
-<input type="button" action="javascript:document.location.reload()" value="Get Value" onclick="getValue()"/>
-!-->
+input,textarea{
+width:100%;
+background-color:black;
+}
+</style>
+
 
 <div class="booking">
+<div class="booking-grid-item"><h2>Kategória: 1.		</div>
 <div class="booking-grid-item"><img src="img/hotel1.jpg" style="width:50px;height:50px"/>				</div>
 <div class="booking-grid-item"><img src="img/hotel1.jpg"style="width:50px;height:50px"/>				</div>
-<div class="booking-grid-item"><select multiple="multiple" id="category"><option value="2">Standard</option><option value="1">Premium</option></select><br><input type="button" value="Get Value" onclick="getValue2();"/>			</div>
-<div class="booking-grid-item" ><p id="price"></p>		</div>
-<input type="button" value="Lefoglalom" onclick=""/>
 
 </div>
 
+<div class="booking">
+<div class="booking-grid-item"><h2>Kategória: 2.		</div>
+<div class="booking-grid-item"><img src="img/hotel1.jpg" style="width:50px;height:50px"/>				</div>
+<div class="booking-grid-item"><img src="img/hotel1.jpg"style="width:50px;height:50px"/>				</div>
+</div>
+<div id="spacer"/>
+
+<div class="bookingcalc">
+<div class="booking-grid-item" ><h2>Foglalás Kalkulátor		</div>
+<div class="booking-grid-item">		</div>
+<div class="booking-grid-item">	<select multiple="multiple" id="category"><option value="2">Standard</option><option value="1">Premium</option></select>	</div>
+<div class="booking-grid-item" name ="price" id="price"  ><p id="price" name="price" style="vertical-align:middle;"></p>		</div>
+<div class="booking-grid-item" ><input type="button" value="Érték számítás" onclick="getValue2();"/></div>
+</div>
+<div id="spacer"/>
+<center>
+<div id="form_container">
+	
+		<h1><a>Foglalás</a></h1>
+		<form style="text-align:center;float:center" action="src/input.php" method="POST">
+		<center>
+			
+					<h3>Név</h3>
+					<p>Keresztnév</p>
+					<input maxlength="255" placeholder="Keresztnév" size="2" name="knev" style="height:50px" />
+					<p>Vezetéknév</p>
+					<input maxlength="255" placeholder="Vezetéknév" size="2" name="vnev"style="height:50px"/>
+					
+					
+					<p>Email</p>
+					<input maxlength="255" placeholder="Email cím" size="2" name="mail"style="height:50px"/>
+					<p>Telefonszám</p>
+					<input maxlength="255" placeholder="Telefonszám" size="2" name="tszam"style="height:50px"/>
+					
+					
+					<p>Létszám</p>
+					<input maxlength="255" placeholder="Hány fő érkezik?" size="2" name="fo"style="height:50px"/>
+					<p>Szoba Kategória</p>
+					<input maxlength="255" placeholder="Szoba Kategória" size="2" name="szkat"style="height:50px"/>
+					
+					
+					<textarea placeholder="Mettől meddig foglalná a szobát?" name="hosszabb"></textarea>
+					<input type="submit" name="submit" value="Küldés">
+					</form></center>
+			
   <div id="spacer"/>
 <div id="spacer"/>
-<div id="spacer"/>
-<div id="spacer"/>
-<div id="spacer"/>
+<div id="spacer"/><!--
+CREATE TRIGGER bookingTrigger3
+    BEFORE INSERT
+    ON booking FOR EACH ROW
+BEGIN
+IF NEW.fo >=1 && NEW.fo <=3 THEN
+	IF NEW.kat = 2 THEN
+ SET NEW.price=5000;
+ END IF;
+	IF NEW.kat= 1 THEN
+	SET NEW.price=6000;
+	END IF;
+END IF;
+IF NEW.fo>3 && NEW.fo<10 THEN
+	IF NEW.kat = 2 THEN 
+	SET NEW.price=10000;
+	END IF;
+	IF NEW.kat=1 THEN
+	SET NEW.price=15000;
+	END IF;
+	END IF;
+IF NEW.fo>10 THEN
+	IF NEW.kat =2 THEN
+	SET NEW.price =50000;
+	END IF;
+	IF NEW.kat=1 THEN
+	SET NEW.price =60000;
+	END IF;
+	END IF;
+	
+END;!-->

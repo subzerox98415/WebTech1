@@ -1,29 +1,57 @@
 <?php
-   include("Connect.php");
-   session_start();
-   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
-     
-      $myusername = mysqli_real_escape_string($dbname,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($dbname,$_POST['password']); 
-      
-      $sql = "SELECT id FROM accounts WHERE username = '$myusername' and pswd = '$mypassword'";
-      $result = mysqli_query($dbname,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
-      
-      $count = mysqli_num_rows($result);
-      
-      // If result matched $myusername and $mypassword, table row must be 1 row
+session_start();
+
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = 'ascent';
+$DATABASE_NAME = 'webtech';
+
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+if ( mysqli_connect_errno() ) {
+
+	die ('Valami nem adja főnök: ' . mysqli_connect_error());
+}
+if ( !isset($_POST['username'], $_POST['password']) ) {
+	die ('!');
+}
+
+if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+	
+	$stmt->bind_param('s', $_POST['username']);
+	$stmt->execute();
+	
+	$stmt->store_result();
+}
+if ($stmt->num_rows > 0) {
+	$stmt->bind_result($id, $password);
+	$stmt->fetch();
+
+	if ($_POST['password'] === $password)  {
 		
-      if($count == 1) {
-         session_register("myusername");
-         $_SESSION['login_user'] = $myusername;
-         
-         header("location: ../index.php");
-      }else {
-         $error = "Your Login Name or Password is invalid";
-      }
-   }
-?>
+		session_regenerate_id();
+		$_SESSION['loggedin'] = TRUE;
+		$_SESSION['name'] = $_POST['username'];
+		$_SESSION['id'] = $id;
+		echo 'Üdv ' . $_SESSION['name'] . '!';
+	
+  
+
+
+
+
+		header('Location: kezdo.php');
+		
+
+	} else {
+		 $message = "Felhasználó vagy a jelszó nem jó próbáld újra.";
+  echo $message;
+ 
+  header('Location:../index.php');
+
+	}
+} else {
+	 $message = "Felhasználó vagy a jelszó nem jó próbáld újra.";
+   echo $message; header('Location:../index.php');
+
+}
+$stmt->close();
