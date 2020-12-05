@@ -40,9 +40,9 @@
 				
 				$stick= 'stick';
 			$id=$row['id'];
-			$megrendelo = $row['category'];
+			$megrendelo = $row['kat'];
 			$email = $row['price'];
-			$telszam = $row ['accountid'];
+			$telszam = $row ['id'];
 		
 
 			

@@ -6,7 +6,7 @@
 <script>
 
 document.getElementById("price").innerHTML = getValue2();
-
+document.getElementById("kuldes").style.display="none";
 </script>
 <style>
 
@@ -18,6 +18,8 @@ background-color:black;
 
 
 <div class="booking">
+
+
 <div class="booking-grid-item"><h2>Kategória: 1.		</div>
 <div class="booking-grid-item"><img src="img/hotel1.jpg" style="width:50px;height:50px"/>				</div>
 <div class="booking-grid-item"><img src="img/hotel1.jpg"style="width:50px;height:50px"/>				</div>
@@ -25,6 +27,7 @@ background-color:black;
 </div>
 
 <div class="booking">
+
 <div class="booking-grid-item"><h2>Kategória: 2.		</div>
 <div class="booking-grid-item"><img src="img/hotel1.jpg" style="width:50px;height:50px"/>				</div>
 <div class="booking-grid-item"><img src="img/hotel1.jpg"style="width:50px;height:50px"/>				</div>
@@ -36,10 +39,20 @@ background-color:black;
 <div class="booking-grid-item">		</div>
 <div class="booking-grid-item">	<select multiple="multiple" id="category"><option value="2">Standard</option><option value="1">Premium</option></select>	</div>
 <div class="booking-grid-item" name ="price" id="price"  ><p id="price" name="price" style="vertical-align:middle;"></p>		</div>
+
 <div class="booking-grid-item" ><input type="button" value="Érték számítás" onclick="getValue2();"/></div>
 </div>
 <div id="spacer"/>
 <center>
+<div id="form_container">
+<h2>Szoba üresség ellenörző</h2>
+<p>Szobaszám</p>
+					<input maxlength="255" placeholder="Szobaszám" size="2" id="searchedroom" style="height:50px" />
+					<input type="submit" name="submit" onclick="searchroom()" value="Keresés">
+					<div id="foglalte"></div>
+
+</div>
+<div id="spacer"></div>
 <div id="form_container">
 	
 		<h1><a>Foglalás</a></h1>
@@ -50,7 +63,7 @@ background-color:black;
 					<p>Keresztnév</p>
 					<input maxlength="255" placeholder="Keresztnév" size="2" name="knev" style="height:50px" />
 					<p>Vezetéknév</p>
-					<input maxlength="255" placeholder="Vezetéknév" size="2" name="vnev"style="height:50px"/>
+					<input maxlength="255" placeholder="Vezetéknév" size="2" id="vnev" name="vnev"style="height:50px"/>
 					
 					
 					<p>Email</p>
@@ -63,15 +76,20 @@ background-color:black;
 					<input maxlength="255" placeholder="Hány fő érkezik?" size="2" name="fo"style="height:50px"/>
 					<p>Szoba Kategória</p>
 					<input maxlength="255" placeholder="Szoba Kategória" size="2" name="szkat"style="height:50px"/>
+					<p>Szoba száma (1-20)</p>
+					<input maxlength="255" placeholder="Szoba száma" size="2" id="roomNum"style="height:50px"/>
 					
 					
 					<textarea placeholder="Mettől meddig foglalná a szobát?" name="hosszabb"></textarea>
-					<input type="submit" name="submit" value="Küldés">
+					<input type="button"onclick="store()" value="Szoba Ellenőrzése">
+					<input type="submit"  id="kuldes"name="submit" value="Küldés">
 					</form></center>
 			
   <div id="spacer"/>
 <div id="spacer"/>
-<div id="spacer"/><!--
+<div id="spacer"/>
+<div id="result"></div>
+<!--
 CREATE TRIGGER bookingTrigger3
     BEFORE INSERT
     ON booking FOR EACH ROW

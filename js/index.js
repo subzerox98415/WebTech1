@@ -66,3 +66,59 @@ function pgl(obj)
 	   }
    });
 	}
+	function store()
+	{	var valid = validatefreeroom();
+		if(valid == 0)
+		{
+			alert("ez a szoba szabad");	
+		var nev = document.getElementById("vnev").value;
+		localStorage.setItem("lastname", nev);
+		var room=document.getElementById("roomNum").value;
+		localStorage.setItem("roomNum",room );
+		document.getElementById("kuldes").style.display="block";
+	}
+		if(valid == 1)
+		{
+			alert("Keressen másik szobát");
+		}
+	}
+
+	function validatefreeroom()
+	{
+		var sroom=document.getElementById("searchedroom").value;
+		for(var i=0;i<localStorage.length;i++)
+	{
+		localstorekey=localStorage.getItem(localStorage.key(i));
+		if (sroom == localstorekey)
+		{
+			return 1;
+			
+	}
+	else
+	{
+		return 0;
+	}
+	}
+	}
+
+function searchroom()
+{
+	var sroom=document.getElementById("searchedroom").value;
+	
+	for(var i=0;i<localStorage.length;i++)
+	{
+		 var key = localStorage.key(i);
+    var value = localStorage[key];
+
+	
+		if(value == sroom)
+		{
+			
+			document.getElementById("foglalte").innerHTML="ez a szoba foglalt a hétre"
+		}
+		else
+		{
+			document.getElementById("foglalte").innerHTML="ez a szoba nem foglalt a hétre"
+		}
+	}
+}
